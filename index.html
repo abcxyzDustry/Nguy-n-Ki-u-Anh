@@ -443,7 +443,7 @@
             const errorMsg = document.getElementById('errorMsg');
 
             // Mật khẩu chính xác
-            const CORRECT_PASSWORD = "Il0VE Em";  // I L0VE EM (chữ i hoa, số 0, V hoa, E hoa)
+            const CORRECT_PASSWORD = "OnlyYou";  // OnlyYou ( O&Y viết hoa nhé người đẹp=) )
 
             function checkPassword() {
                 const entered = passwordInput.value;
@@ -452,7 +452,7 @@
                     mainContent.classList.add('visible');
                     errorMsg.innerHTML = '';
                 } else {
-                    errorMsg.innerHTML = '❌ Mật khẩu chưa đúng, thử lại nhé! (Gợi ý: I l0vE Em)';
+                    errorMsg.innerHTML = '❌ Mật khẩu chưa đúng, thử lại nhé! (Gợi ý: OnlyYou)';
                     passwordInput.value = '';
                     passwordInput.focus();
                 }
