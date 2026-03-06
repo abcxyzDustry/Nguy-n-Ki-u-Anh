@@ -334,6 +334,17 @@
             color: #880e4f;
             font-weight: 600;
         }
+
+        .small-note {
+            margin-top: 20px;
+            color: #a53860;
+            font-weight: 600;
+            font-style: italic;
+            background: rgba(255,255,240,0.5);
+            padding: 8px 20px;
+            border-radius: 40px;
+            backdrop-filter: blur(3px);
+        }
     </style>
 </head>
 <body>
@@ -350,7 +361,7 @@
             <input type="password" id="passwordInput" class="password-input" placeholder="Nhập mật khẩu..." autocomplete="off">
             <button class="btn-login" id="loginBtn"><i class="fas fa-heart"></i> Mở cửa trái tim <i class="fas fa-heart"></i></button>
             <div class="error-message" id="errorMsg"></div>
-            <div style="margin-top: 20px; font-size: 15px; color: #a3416a;">💡 Gợi ý: I l0vE Em (Lưu ý chữ hoa, số 0)</div>
+            <div style="margin-top: 20px; font-size: 15px; color: #a3416a;">💡 Gợi ý: Chỉ có anh mới biết (OnlyYou)</div>
         </div>
     </div>
 
@@ -358,7 +369,7 @@
     <div class="main-content" id="mainContent">
         <div class="card">
             <h1>🌸 8/3 thân thương 🌸</h1>
-            <div class="sub-title">Gửi Nguyễn Kiều Anh</div>
+            <div class="sub-title">Gửi bé Nguyễn Kiều Anh</div>
 
             <div class="flower-grid">
                 <div class="flower-item"><i class="fas fa-heart"></i></div>
@@ -369,25 +380,25 @@
 
             <div class="message-box">
                 <p>
-                    <i class="fas fa-quote-left"></i> Chào bạn đặc biệt, Nguyễn Kiều Anh thân mến! <i class="fas fa-quote-right"></i>
+                    <i class="fas fa-quote-left"></i> Gửi bé Nguyễn Kiều Anh <i class="fas fa-quote-right"></i>
                 </p>
                 <p>
-                    Hôm nay là ngày 8/3 - ngày của những bông hoa và yêu thương.  
-                    Mình không biết nên tặng bạn điều gì ngoài những dòng code này,  
-                    nhưng mong rằng nó sẽ làm bạn cười. 🌷
+                    Hôm nay là ngày 8/3 - ngày của những bông hoa và yêu thương. <br>
+                    8/3 này anh không chúc em hạnh phúc, vì anh đang bận làm cho em hạnh phúc rồi.
                 </p>
                 <p>
-                    Đang trong khoảng thời gian mập mờ, mình chỉ dám viết những dòng này  
-                    và giấu sau mật khẩu "Il0VE Em" (mong bạn hiểu ý mình 💘).  
-                    Cảm ơn bạn vì đã xuất hiện và khiến những ngày tháng trở nên nhẹ nhàng, long lanh hơn.
+                    Cám ơn em vì những ngày tháng qua đã xuất hiện và trở thành một phần quan trọng, không thể thiếu của anh. <br>
+                    Cám ơn em vì những lời động viên và thấu hiểu khi mà anh muốn bỏ cuộc nhất. <br>
+                    Cám ơn em vì đã truyền năng lượng tích cực cho anh trong những ngày vừa qua.
                 </p>
                 <p>
-                    <span class="heart-shape">❤️</span> 
-                    Chúc Kiều Anh luôn rạng rỡ, hạnh phúc và ngập tràn yêu thương 
-                    <span class="heart-shape">❤️</span>
+                    Hết ngày hôm nay cho tới những ngày sau, anh chúc em sẽ sớm là của riêng anh và của mình anh.
+                </p>
+                <p style="font-size: 20px; color:#b3416a;">
+                    😘 Cưng không thoát được đâu, vợ của anh à 😘
                 </p>
                 <div class="signature">
-                    Từ một người đang mập mờ...
+                    Của em mãi mãi...
                 </div>
             </div>
 
@@ -395,8 +406,9 @@
                 <i class="fas fa-star"></i> 8/3/2025 <i class="fas fa-star"></i>
             </footer>
         </div>
-        <!-- Dòng chữ nhỏ phía cuối -->
-        <div style="margin-top: 20px; color: #a53860; font-weight: 600;">Với tất cả sự rung động trong veo ✨</div>
+        <div class="small-note">
+            ✨ Vợ yêu nhất của anh ✨
+        </div>
     </div>
 
     <script>
@@ -442,8 +454,8 @@
             const passwordInput = document.getElementById('passwordInput');
             const errorMsg = document.getElementById('errorMsg');
 
-            // Mật khẩu chính xác
-            const CORRECT_PASSWORD = "OnlyYou";  // OnlyYou ( O&Y viết hoa nhé người đẹp=) )
+            // Mật khẩu chính xác THEO YÊU CẦU MỚI
+            const CORRECT_PASSWORD = "OnlyYou";
 
             function checkPassword() {
                 const entered = passwordInput.value;
@@ -451,6 +463,8 @@
                     overlay.classList.add('hidden');
                     mainContent.classList.add('visible');
                     errorMsg.innerHTML = '';
+                    // phát confetti sau khi login thành công
+                    startConfetti();
                 } else {
                     errorMsg.innerHTML = '❌ Mật khẩu chưa đúng, thử lại nhé! (Gợi ý: OnlyYou)';
                     passwordInput.value = '';
@@ -469,21 +483,15 @@
             window.addEventListener('load', function() {
                 passwordInput.focus();
             });
-
-            // Nếu đã đăng nhập rồi (không cần thiết lắm nhưng giữ cho vui)
-            // không tự động ẩn, phải nhập mật khẩu mới được.
         })();
     </script>
 
-    <!-- Thêm một ít confetti nho nhỏ khi login thành công (tạo hiệu ứng vui) -->
+    <!-- Thêm confetti nho nhỏ khi login thành công (tạo hiệu ứng vui) -->
     <canvas id="confettiCanvas" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 20; display: none;"></canvas>
 
     <!-- Đoạn script confetti nâng cao (chạy khi đăng nhập đúng) -->
     <script>
         (function() {
-            const loginBtn = document.getElementById('loginBtn');
-            const overlay = document.getElementById('loginOverlay');
-            const mainContent = document.getElementById('mainContent');
             const canvas = document.getElementById('confettiCanvas');
             const ctx = canvas.getContext('2d');
             let animationId, width, height;
@@ -533,7 +541,8 @@
                 animationId = requestAnimationFrame(drawConfetti);
             }
 
-            function startConfetti() {
+            // Hàm startConfetti được gọi từ bên ngoài (trong checkPassword)
+            window.startConfetti = function() {
                 if (!canvas.style.display || canvas.style.display === 'none') {
                     resizeCanvas();
                     particles = [];
@@ -551,29 +560,7 @@
                         }
                     }, 8000);
                 }
-            }
-
-            // Lắng nghe sự kiện đăng nhập thành công
-            const originalLogin = loginBtn.click;
-            loginBtn.addEventListener('click', function() {
-                setTimeout(() => {
-                    if (overlay.classList.contains('hidden')) {
-                        startConfetti();
-                    }
-                }, 100);
-            });
-
-            // cũng bắt sự kiện enter
-            const passInput = document.getElementById('passwordInput');
-            passInput.addEventListener('keypress', function(e) {
-                if (e.key === 'Enter') {
-                    setTimeout(() => {
-                        if (overlay.classList.contains('hidden')) {
-                            startConfetti();
-                        }
-                    }, 100);
-                }
-            });
+            };
         })();
     </script>
     <!-- Kết thúc confetti -->
